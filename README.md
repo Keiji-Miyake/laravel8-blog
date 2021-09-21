@@ -8,8 +8,14 @@ Laravel練習用
 
 ```
 vendor/bin/sail composer require laravel/breeze --dev
-php artisan breeze:install react
-npm install
-npm run dev
-php artisan migrate
+vendor/bin/sail artisan breeze:install react
+vendor/bin/sail npm install
+vendor/bin/sail npm run dev
+vendor/bin/sail artisan migrate
+```
+
+## フォームリクエストバリデーション
+
+```shell
+vendor/bin/sail artisan make:request Post/StoreRequest
 ```

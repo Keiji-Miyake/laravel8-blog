@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Post\StoreRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PostController extends Controller
 {
@@ -14,7 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        return Inertia::render('Post/Index', compact('posts'));
     }
 
     /**
@@ -24,18 +27,26 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Post/Create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Post\StoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        // バリデーション済みデータの取得
+        $request->merge(['user_id' => $request->user()->id]);
+        $request->validate([
+            'title' => ['required'],
+            'content' => ['required'],
+        ]);
+
+        Post::create($request->all());
+        return redirect()->route('post.index');
     }
 
     /**
