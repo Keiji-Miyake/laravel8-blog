@@ -46,12 +46,18 @@ services:
           timeout: 5s
     mysql.test:
         image: 'mysql:8.0'
+        ports:
+            - "${FORWARD_DB_PORT:-3307}:3306"
         environment:
             MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
-            MYSQL_DATABASE: '${DB_DATABASE}'
+            MYSQL_DATABASE: '${DB_DATABASE}_test'
             MYSQL_USER: '${DB_USERNAME}'
             MYSQL_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        volumes:
+            - "./docker/mysql.test/init:/docker-entrypoint-initdb.d"
+        tmpfs:
+            - "/var/lib/mysql"
         networks:
             - sail
         healthcheck:

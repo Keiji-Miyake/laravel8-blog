@@ -19,3 +19,12 @@ vendor/bin/sail artisan migrate
 ```shell
 vendor/bin/sail artisan make:request Post/StoreRequest
 ```
+
+
+## ブラウザテスト
+
+```shell
+vendor/bin/sail composer require --dev laravel/dusk
+vendor/bin/sail artisan dusk:install
+vendor/bin/sail dusk
+```
