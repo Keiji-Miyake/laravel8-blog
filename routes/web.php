@@ -35,8 +35,8 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/posts', PostController::class)
         ->names([
-            'index' => 'post.index',
-            'create' => 'post.create',
-            'store' => 'post.store'
+            'index' => 'posts.index',
+            'create' => 'posts.create',
+            'store' => 'posts.store'
         ]);
 });

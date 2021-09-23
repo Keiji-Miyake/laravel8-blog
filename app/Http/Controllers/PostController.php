@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::getFullData()->get();
+        $posts = Post::getFullData()->paginate(5);
 
         return Inertia::render('Post/Index', compact('posts'));
     }
@@ -48,7 +48,7 @@ class PostController extends Controller
         ]);
 
         Post::create($request->all());
-        return redirect()->route('post.index');
+        return redirect()->route('posts.index');
     }
 
     /**

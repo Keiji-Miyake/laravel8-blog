@@ -3762,8 +3762,8 @@ function Authenticated(_ref) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
               className: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_NavLink__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                href: route('post.index'),
-                active: route().current('post.index'),
+                href: route('posts.index'),
+                active: route().current('posts.index'),
                 children: "Post"
               })
             })]
@@ -4632,7 +4632,7 @@ function Create(props) {
 
   var submit = function submit(e) {
     e.preventDefault();
-    post(route('post.store'));
+    post(route('posts.store'));
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -4739,7 +4739,7 @@ function Index(props) {
             className: "p-6 bg-white border-b border-gray-200",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.Link, {
-                href: route("post.create"),
+                href: route("posts.create"),
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
                   type: "button",
                   children: "\u65B0\u898F\u4F5C\u6210"
@@ -4761,7 +4761,7 @@ function Index(props) {
                   })]
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tbody", {
-                children: props.posts.map(function (post) {
+                children: props.posts.data.map(function (post) {
                   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
                       className: "border px-4 py-2",
@@ -4783,7 +4783,7 @@ function Index(props) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                         className: "px-4 py-2 bg-red-500 text-white rounded-lg text-xs font-semibold",
                         onClick: function onClick() {
-                          return handleDelete(blog.id);
+                          return handleDelete(post.id);
                         },
                         children: "\u524A\u9664"
                       })

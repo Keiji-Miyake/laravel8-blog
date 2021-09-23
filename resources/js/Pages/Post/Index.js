@@ -21,7 +21,7 @@ export default function Index(props) {
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 bg-white border-b border-gray-200">
                             <div>
-                                <Link href={route("post.create")}>
+                                <Link href={route("posts.create")}>
                                     <Button type="button">新規作成</Button>
                                 </Link>
                             </div>
@@ -36,7 +36,7 @@ export default function Index(props) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {props.posts.map((post) => {
+                                    {props.posts.data.map((post) => {
                                         return (
                                             <tr key={post.id}>
                                                 <td className="border px-4 py-2">
@@ -58,7 +58,7 @@ export default function Index(props) {
                                                         className="px-4 py-2 bg-red-500 text-white rounded-lg text-xs font-semibold"
                                                         onClick={() =>
                                                             handleDelete(
-                                                                blog.id
+                                                                post.id
                                                             )
                                                         }
                                                     >
