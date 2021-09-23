@@ -11,6 +11,7 @@ Laravel練習用
 ```shell
 vendor/bin/sail composer require laravel/breeze --dev
 vendor/bin/sail artisan breeze:install react
+vendor/bin/sail composer require barryvdh/laravel-debugbar --devcomposer require 
 vendor/bin/sail npm install
 vendor/bin/sail npm run dev
 vendor/bin/sail artisan migrate

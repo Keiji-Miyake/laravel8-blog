@@ -20,5 +20,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@localhost',
             'password' => Hash::make('password'),
         ]);
+
+        User::factory(9)->create();
     }
 }
