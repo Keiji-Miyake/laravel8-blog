@@ -18,13 +18,4 @@ class Post extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
-
-    static function getFullData() {
-        return Post::
-                leftjoin('users', 'posts.user_id', '=', 'users.id')
-                ->select([
-                    'posts.*',
-                    'users.name as author',
-                ]);
-    }
 }

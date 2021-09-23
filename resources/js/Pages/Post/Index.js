@@ -46,7 +46,7 @@ export default function Index(props) {
                                                     {post.content}
                                                 </td>
                                                 <td className="border px-4 py-2">
-                                                    {post.author}
+                                                    {post.user.name}
                                                 </td>
                                                 <td className="border px-4 py-2">
                                                     <button className="px-4 py-2 bg-green-500 text-white rounded-lg text-xs font-semibold">
