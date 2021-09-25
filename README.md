@@ -69,3 +69,24 @@ vendor/bin/sail composer require --dev laravel/dusk
 vendor/bin/sail artisan dusk:install
 vendor/bin/sail dusk
 ```
+
+## CodeSniffer
+
+```shell
+# install
+vendor/bin/sail composer require squizlabs/php_codesniffer --dev
+# composer.json 修正
+    "scripts": {
+        ...
+        "phpcs": [
+            "phpcs --standard=PSR12"
+        ],
+        "phpcbf": [
+            "phpcbf --standard=PSR12"
+        ]
+    },
+# 判定
+vendor/bin/sail composer phpcs /path/to/dir or file
+# 修正
+vendor/bin/sail composer phpcbf /path/to/dir or file
+```
