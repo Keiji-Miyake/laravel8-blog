@@ -1,17 +1,17 @@
 # laravel-blog
 
-Laravel練習用
+Laravel 練習用
 
-- Laravel8
-- Laravel sail
-- Laravel Breeze
+-   Laravel8
+-   Laravel sail
+-   Laravel Breeze
 
 ## 構築
 
 ```shell
 vendor/bin/sail composer require laravel/breeze --dev
 vendor/bin/sail artisan breeze:install react
-vendor/bin/sail composer require barryvdh/laravel-debugbar --devcomposer require 
+vendor/bin/sail composer require barryvdh/laravel-debugbar --devcomposer require
 vendor/bin/sail npm install
 vendor/bin/sail npm run dev
 vendor/bin/sail artisan migrate
@@ -61,7 +61,6 @@ php artisan make:model Member --pivot
 vendor/bin/sail artisan make:request Post/StoreRequest
 ```
 
-
 ## ブラウザテスト
 
 ```shell
@@ -71,6 +70,8 @@ vendor/bin/sail dusk
 ```
 
 ## CodeSniffer
+
+### PHP
 
 ```shell
 # install
@@ -89,4 +90,20 @@ vendor/bin/sail composer require squizlabs/php_codesniffer --dev
 vendor/bin/sail composer phpcs /path/to/dir or file
 # 修正
 vendor/bin/sail composer phpcbf /path/to/dir or file
+```
+
+### JS
+
+ESLint と Prettier を併用する。
+コード整形は Prettier で行うのがよい(できることが多い、設定が手軽で確実)。
+
+```shell
+# 判定
+vendor/bin/sail npx eslint resources/js
+# 修正(prettierでやったほうがいい)
+vendor/bin/sail npx eslint resources/js --fix
+# 判定
+vendor/bin/sail npx prettier --check .
+# 修正
+vendor/bin/sail npx prettier --write .
 ```

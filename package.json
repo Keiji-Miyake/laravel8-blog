@@ -7,7 +7,14 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "prepare": "husky install",
+        "pre-commit": "lint-staged"
+    },
+    "lint-staged": {
+        "**/*": "prettier --write --ignore-unknown",
+        "*.js": "eslint --cache --fix",
+        "*.{js,css,md}": "prettier --write"
     },
     "devDependencies": {
         "@babel/preset-react": "^7.13.13",
@@ -18,10 +25,24 @@
         "@tailwindcss/forms": "^0.3.2",
         "autoprefixer": "^10.2.4",
         "axios": "^0.21",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.25.2",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-react": "^7.26.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.2",
         "laravel-mix": "^6.0.6",
+        "lint-staged": "^11.1.2",
         "lodash": "^4.17.19",
         "postcss": "^8.2.13",
         "postcss-import": "^14.0.1",
+        "prettier": "2.4.1",
+        "pretty-quick": "^3.1.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "tailwindcss": "^2.1.2"

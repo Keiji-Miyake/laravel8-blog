@@ -1,0 +1,38 @@
+{
+    "root": true,
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "standard",
+        "plugin:import/warnings",
+        "prettier"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": ["react"],
+    "rules": {
+        "import/no-extraneous-dependencies": "off", // reactはコンパイル後app.jsとなるため、devdependenciesで問題ない
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "import/order": [
+            "warn",
+            {
+                "alphabetize": { "order": "asc" },
+                "newlines-between": "always"
+            }
+        ],
+        "no-unused-vars": "warn",
+        "no-console": "off",
+        "func-names": "off",
+        "no-process-exit": "off",
+        "object-shorthand": "off",
+        "class-methods-use-this": "off"
+    }
+}
